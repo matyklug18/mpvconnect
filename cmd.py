@@ -28,4 +28,5 @@ while True:
                 mpv.set_playback_time(result)
             elif cmd[1] == 'p':
                 mpv.set_playback_percent(result)
+        playback = mpv.get_playback()
         print(f't:{playback["time"]}s / m:{playback["max"]}s (p:{playback["percent"]}%)')

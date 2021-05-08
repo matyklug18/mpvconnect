@@ -67,13 +67,11 @@ class MPVConnection:
         self.__set_prop("time-pos", value)
 
     def set_playback_percent(self, value):
-        self.__set_prop("percent-pos", value)
+        self.set_playback_time(self.get_playback()["max"] / 100 * value)
 
     def get_playlist(self):
         return self.__get_prop("playlist-pos")
 
     def set_playlist(self, value):
         self.__set_prop("playlist-pos", value)
-
-
 
