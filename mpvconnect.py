@@ -75,3 +75,6 @@ class MPVConnection:
     def set_playlist(self, value):
         self.__set_prop("playlist-pos", value)
 
+    def get_name(self):
+       return self.__get_prop("media-title")
+
