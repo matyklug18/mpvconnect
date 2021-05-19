@@ -2,7 +2,7 @@ import readline
 from mpvconnect import MPVConnection as MPV
 
 mpv = MPV(conn_type="network")
-mpv.connect(host="10.0.0.23", timeout=0.1)
+mpv.connect(host="127.0.0.1", timeout=0.1)
 
 while True:
     cmd = input("> ")
@@ -32,3 +32,7 @@ while True:
         print(f't:{playback["time"]}s / m:{playback["max"]}s (p:{playback["percent"]}%)')
     elif cmd.startswith("i"):
         print(mpv.get_name())
+
+    elif cmd.startswith("n"):
+        mpv.set_loop_file(not mpv.get_loop_file())
+        print(mpv.get_loop_file())

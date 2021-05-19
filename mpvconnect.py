@@ -69,12 +69,18 @@ class MPVConnection:
     def set_playback_percent(self, value):
         self.set_playback_time(self.get_playback()["max"] / 100 * value)
 
-    def get_playlist(self):
-        return self.__get_prop("playlist-pos")
+    def get_playlist_pos(self):
+        return self.__get_prop("playlist-pos") + 1
 
-    def set_playlist(self, value):
-        self.__set_prop("playlist-pos", value)
+    def set_playlist_pos(self, value):
+        self.__set_prop("playlist-pos", value - 1)
 
     def get_name(self):
        return self.__get_prop("media-title")
+    
+    def set_loop_file(self, value):
+        self.__set_prop("loop-file", "inf" if value else "no")
+    
+    def get_loop_file(self):
+        return self.__get_prop("loop-file") == "inf"
 
